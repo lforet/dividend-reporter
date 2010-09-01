@@ -1,0 +1,10 @@
+%h1= t '.title'
+%p
+  = link_to t('back'), stocks_path
+  = link_to t('edit'), edit_stock_path(@stock)
+
+%dl
+  %dt= Stock.human_attribute_name :name
+  %dd= @stock.name
+  %dt= Stock.human_attribute_name :ticker
+  %dd= @stock.ticker

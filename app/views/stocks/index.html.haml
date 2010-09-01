@@ -1,0 +1,18 @@
+%h1= t('.title')
+%p= link_to t('.new_stock'), new_stock_path
+
+%table
+  %thead
+    %tr
+      %th= Stock.human_attribute_name :name
+      %th= Stock.human_attribute_name :ticker
+      %th{:colspan => 3}= t 'actions'
+  
+  %tbody
+    - for stock in @stocks
+      %tr{ :class => cycle(:odd, :even) }
+        %td= stock.name
+        %td= stock.ticker
+        %td.action= link_to t('show'), stock
+        %td.action= link_to t('edit'), edit_stock_path(stock)
+        %td.action= link_to t('destroy'), stock, :confirm => t('are_you_sure'), :method => :delete
