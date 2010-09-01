@@ -1,0 +1,16 @@
+%h1= t '.title'
+%p
+  = link_to t('back'), quotes_path
+  = link_to t('edit'), edit_quote_path(@quote)
+
+%dl
+  %dt= Quote.human_attribute_name :stock_id
+  %dd= @quote.stock_id
+  %dt= Quote.human_attribute_name :dividend
+  %dd= @quote.dividend
+  %dt= Quote.human_attribute_name :exdate
+  %dd= @quote.exdate
+  %dt= Quote.human_attribute_name :dividend_per_share
+  %dd= @quote.dividend_per_share
+  %dt= Quote.human_attribute_name :last_price
+  %dd= @quote.last_price

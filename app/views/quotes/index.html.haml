@@ -1,0 +1,24 @@
+%h1= t('.title')
+%p= link_to t('.new_quote'), new_quote_path
+
+%table
+  %thead
+    %tr
+      %th= Quote.human_attribute_name :stock_id
+      %th= Quote.human_attribute_name :dividend
+      %th= Quote.human_attribute_name :exdate
+      %th= Quote.human_attribute_name :dividend_per_share
+      %th= Quote.human_attribute_name :last_price
+      %th{:colspan => 3}= t 'actions'
+  
+  %tbody
+    - for quote in @quotes
+      %tr{ :class => cycle(:odd, :even) }
+        %td= quote.stock_id
+        %td= quote.dividend
+        %td= quote.exdate
+        %td= quote.dividend_per_share
+        %td= quote.last_price
+        %td.action= link_to t('show'), quote
+        %td.action= link_to t('edit'), edit_quote_path(quote)
+        %td.action= link_to t('destroy'), quote, :confirm => t('are_you_sure'), :method => :delete

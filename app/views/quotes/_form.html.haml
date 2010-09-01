@@ -1,0 +1,31 @@
+= form_for(@quote) do |f|
+  - if @quote.errors.any?
+    #errorExplanation
+      %h2= "#{pluralize(@quote.errors.count, 'error')} prohibited this user from being saved:"
+      %ul
+      - @quote.errors.full_messages.each do |msg|
+        %li= msg
+  
+  .field
+    = f.label :stock_id
+    %br
+    = f.text_field :stock_id
+  .field
+    = f.label :dividend
+    %br
+    = f.text_field :dividend
+  .field
+    = f.label :exdate
+    %br
+    = f.date_select :exdate
+  .field
+    = f.label :dividend_per_share
+    %br
+    = f.text_field :dividend_per_share
+  .field
+    = f.label :last_price
+    %br
+    = f.text_field :last_price
+
+  .actions
+    = f.submit
