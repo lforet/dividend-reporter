@@ -1,0 +1,9 @@
+db/*.sqlite3
+log/*.log
+tmp/**/*
+config/database.yml
+db/schema.rb
+nbproject
+.rvmrc
+public/stylesheets/compiled/*
+.sass-cache/**/*
