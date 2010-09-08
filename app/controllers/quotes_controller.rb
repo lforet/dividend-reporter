@@ -40,17 +40,8 @@ class QuotesController < ApplicationController
   # POST /quotes
   # POST /quotes.xml
   def create
-    @quote = Quote.new(params[:quote])
-
-    respond_to do |format|
-      if @quote.save
-        format.html { redirect_to(@quote, :notice => 'Quote was successfully created.') }
-        format.xml  { render :xml => @quote, :status => :created, :location => @quote }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @quote.errors, :status => :unprocessable_entity }
-      end
-    end
+    Quote.gather_quotes(Stock.active)
+    redirect_to(quotes_path, :notice => 'Quotes were retrieved.')
   end
 
   # PUT /quotes/1
