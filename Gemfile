@@ -4,7 +4,7 @@ gem 'rails', '3.0.0'
 gem 'yahoofinance', '1.2.2'
 gem 'haml-edge', '3.1.72', :require => 'haml'
 
-gem 'sqlite3-ruby', :require => 'sqlite3'
+gem 'mysql', '2.8.1'
 
 group :test, :development do
   gem "rspec-rails", ">= 2.0.0.beta.20"
@@ -20,7 +20,3 @@ group :test, :development do
   # gem "capybara-envjs"
   # gem "launchy"
 end
-
-# Use unicorn as the web server
-gem 'unicorn', '1.1.3'
-
