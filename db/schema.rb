@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100901202124) do
+ActiveRecord::Schema.define(:version => 20100908183600) do
 
   create_table "quotes", :force => true do |t|
     t.integer  "stock_id"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(:version => 20100901202124) do
     t.string   "ticker"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "active",     :default => true
   end
 
 end
