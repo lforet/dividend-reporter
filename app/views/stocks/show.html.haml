@@ -1,10 +1,13 @@
-%h1= t '.title'
+%h1
+  Stock:
+  = @stock.to_s
 %p
-  = link_to t('back'), stocks_path
-  = link_to t('edit'), edit_stock_path(@stock)
-
+  = link_to 'View all Stocks', stocks_path
+  = link_to 'Edit', edit_stock_path(@stock)
 %dl
   %dt= Stock.human_attribute_name :name
   %dd= @stock.name
   %dt= Stock.human_attribute_name :ticker
   %dd= @stock.ticker
+
+= render(:partial => "quotes/quotes_table", :locals => {:quotes => @stock.quotes, :title => 'Quotes'})
