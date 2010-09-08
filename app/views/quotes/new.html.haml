@@ -1,3 +1,6 @@
-%h1= t '.title'
-%p= link_to t('back'), quotes_path
-= render 'form'
+%h1 Gather Quotes
+%p= link_to 'View all quotes', quotes_path
+= form_for(@quote) do |f|
+  .actions
+    = f.submit('Gather Quotes')
+

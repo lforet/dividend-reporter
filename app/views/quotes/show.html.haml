@@ -1,8 +1,9 @@
-%h1= t '.title'
+%h1
+  Stock:
+  = @quote.to_s
 %p
-  = link_to t('back'), quotes_path
-  = link_to t('edit'), edit_quote_path(@quote)
-
+  = link_to 'View all Stocks', quotes_path
+  = link_to 'Edit', edit_quote_path(@quote)
 %dl
   %dt= Quote.human_attribute_name :stock_id
   %dd= @quote.stock_id

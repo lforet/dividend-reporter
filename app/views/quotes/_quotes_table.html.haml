@@ -1,0 +1,25 @@
+- if title && !quotes.empty?
+  %h2= title
+- unless quotes.empty?
+  %table
+    %thead
+      %tr
+        %td Dividend
+        %td ExDate
+        %td Dividend/Share
+        %td Last Price
+        %td Collected At
+    %tfoot
+      %tr
+        %td Dividend
+        %td ExDate
+        %td Dividend/Share
+        %td Last Price
+        %td Collected At
+    %tbody
+      - quotes.each do |quote|
+        %tr
+          %td= quote.dividend.to_s
+          %td= quote.exdate.to_s
+          %td= quote.dividend_per_share.to_s
+          %td= quote.created_at.to_s
