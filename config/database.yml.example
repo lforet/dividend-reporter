@@ -1,0 +1,14 @@
+development:
+  adapter: mysql
+  database: dividend_reporter_development
+  login: root
+  password: 
+
+test: &test
+  adapter: mysql
+  database: dividend_reporter_test
+  login: root
+  password: 
+
+cucumber:
+  <<: *test
