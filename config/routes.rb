@@ -1,7 +1,8 @@
 DividendReporter::Application.routes.draw do
   resources :quotes
-
   resources :stocks
+
+  root :to => "quotes#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
