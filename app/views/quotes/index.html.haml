@@ -1,3 +1,4 @@
 %h1 Quotes
 %p= link_to 'Gather Quotes', new_quote_path
+%p= link_to 'View Stocks', stocks_path
 = render(:partial => "quotes/quotes_table", :locals => {:quotes => @quotes, :title => nil})
