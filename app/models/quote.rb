@@ -2,6 +2,8 @@ require File.join(Rails.root, "lib", "yahoo_integrator.rb")
 
 class Quote < ActiveRecord::Base
 
+  validates_presence_of :stock_id, :dividend, :exdate, :dividend_per_share, :last_price
+
   belongs_to :stock
 
   def to_s
