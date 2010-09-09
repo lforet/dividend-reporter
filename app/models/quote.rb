@@ -10,7 +10,8 @@ class Quote < ActiveRecord::Base
 
 
   def self.gather_quotes(stocks)
-    yi = YahooIntegrator.new(@quotes)
+    tickers = stocks.map{|x| x.ticker}
+    yi = YahooIntegrator.new(tickers)
     yi.run
   end
   
