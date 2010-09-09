@@ -24,10 +24,13 @@ class YahooIntegrator
     # You can get the same effect using the quote specific method.
     quotes = YahooFinance::get_quotes(@quote_type, @quote_symbols) do |qt|
       last_price = YahooFinance::get_quotes(YahooFinance::StandardQuote, qt.symbol)[qt.symbol].lastTrade
-      Quote.create(:ticker => qt.symbol, :name => qt.name, 
-                   :dividend => qt.dividendYield, :exdate => Date.parse(qt.exDividendDate),
-                   :dividend_per_share => qt.dividendPerShare, 
-                   :last_price => last_price )
+      if stock = Stock.where(:ticker => qt.symbol).first
+        Quote.create( :stock => stock,
+                      :dividend => qt.dividendYield,
+                      :exdate => Date.parse(qt.exDividendDate),
+                      :dividend_per_share => qt.dividendPerShare, 
+                      :last_price => last_price )
+      end
     end
   end
 end
